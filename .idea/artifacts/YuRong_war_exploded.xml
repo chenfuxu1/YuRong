@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="YuRong:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/YuRong_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="YuRong/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="YuRong" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,11 @@
+a {
+    text-decoration: none; /* 取消默认的下划线 */
+    color: black;
+}
+
+.circle-img {
+    width: 30px; /* 设置图片宽度 */
+    height: 30px; /* 设置图片高度 */
+    border-radius: 50%; /* 设置边框半径为50%，实现圆形效果 */
+    object-fit: cover; /* 裁剪并覆盖图片以填充容器 */
+}
