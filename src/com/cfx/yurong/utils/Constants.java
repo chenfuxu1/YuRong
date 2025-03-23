@@ -16,4 +16,6 @@ public class Constants {
 
     public static final int YU_RONG_PRICE  = 4; // 羽绒单价 4 元 / 斤
     public static final int FBP_PRICE  = 140; // 风包皮 140 元 / 天
+
+    
 }
