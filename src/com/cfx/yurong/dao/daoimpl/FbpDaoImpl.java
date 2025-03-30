@@ -7,7 +7,7 @@ import com.cfx.yurong.utils.Logit;
 
 import java.util.List;
 
-import static com.cfx.yurong.utils.Constants.TABLE_FBP_2024;
+import static com.cfx.yurong.utils.Constants.TABLE_FBP;
 
 /**
  * Project: YuRong
@@ -23,7 +23,7 @@ public class FbpDaoImpl extends BasicDao<FbpItem> implements IFbpDao {
             Logit.d(TAG, "workerName is null");
             return null;
         }
-        String sql = "select id, work_name workName, work_time workTime, date_kind dateKind, work_hour workHour from " + TABLE_FBP_2024 + " where work_name = ?";
+        String sql = "select id, work_name workName, work_time workTime, date_kind dateKind, work_hour workHour from " + TABLE_FBP + " where work_name = ?";
         return queryMulti(sql, FbpItem.class, workerName);
     }
 
@@ -33,14 +33,14 @@ public class FbpDaoImpl extends BasicDao<FbpItem> implements IFbpDao {
             Logit.d(TAG, "fbpItem is null");
             return false;
         }
-        String sql = "insert into " + TABLE_FBP_2024 + " values(?, ?, ?, ?, ?);";
+        String sql = "insert into " + TABLE_FBP + " values(?, ?, ?, ?, ?);";
         int update =  update(sql, fbpItem.getId(), fbpItem.getWorkName(), fbpItem.getWorkTime(), fbpItem.getDateKind(), fbpItem.getWorkHour());
         return update > 0;
     }
 
     @Override
     public List<String> getAllWorkName() {
-        String sql = "select distinct work_name from " + TABLE_FBP_2024;
+        String sql = "select distinct work_name from " + TABLE_FBP;
         return queryArrayList(sql);
     }
 
@@ -50,7 +50,7 @@ public class FbpDaoImpl extends BasicDao<FbpItem> implements IFbpDao {
             Logit.d(TAG, "input id is error");
             return null;
         }
-        String sql = "select id, work_name workName, work_time workTime, date_kind dateKind, work_hour workHour from " + TABLE_FBP_2024 + " where id = ?";
+        String sql = "select id, work_name workName, work_time workTime, date_kind dateKind, work_hour workHour from " + TABLE_FBP + " where id = ?";
         return querySingle(sql, FbpItem.class, id);
     }
 
@@ -64,7 +64,7 @@ public class FbpDaoImpl extends BasicDao<FbpItem> implements IFbpDao {
             Logit.d(TAG, "input id is error");
             return false;
         }
-        String sql = "update " + TABLE_FBP_2024 + " set work_name = ?, work_time = ?, date_kind = ?, work_hour = ? where id = ?";
+        String sql = "update " + TABLE_FBP + " set work_name = ?, work_time = ?, date_kind = ?, work_hour = ? where id = ?";
         int update =  update(sql, fbpItem.getWorkName(), fbpItem.getWorkTime(), fbpItem.getDateKind(), fbpItem.getWorkHour(),
                 fbpItem.getId());
         return update > 0;
@@ -76,7 +76,7 @@ public class FbpDaoImpl extends BasicDao<FbpItem> implements IFbpDao {
             Logit.d(TAG, "input id is null");
             return false;
         }
-        String sql = "delete from " + TABLE_FBP_2024 + " where id = ?";
+        String sql = "delete from " + TABLE_FBP + " where id = ?";
         int update = update(sql, id);
         return update > 0;
     }

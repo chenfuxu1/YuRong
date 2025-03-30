@@ -12,8 +12,6 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-import static com.cfx.yurong.utils.Constants.TABLE_YU_RONG_2024;
-
 /**
  * Project: YuRong
  * Create By: Chen.F.X

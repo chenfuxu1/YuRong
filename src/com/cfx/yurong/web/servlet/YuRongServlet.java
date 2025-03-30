@@ -5,6 +5,7 @@ import com.cfx.yurong.service.IFbpService;
 import com.cfx.yurong.service.IYuRongService;
 import com.cfx.yurong.service.serviceimpl.FbpServiceImpl;
 import com.cfx.yurong.service.serviceimpl.YuRongServiceImpl;
+import com.cfx.yurong.utils.Constants;
 import com.cfx.yurong.utils.Logit;
 import com.cfx.yurong.utils.StringToNumUtils;
 
@@ -42,7 +43,18 @@ public class YuRongServlet extends BaseServlet {
      * @throws IOException
      */
     private void showIndex(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Logit.d(TAG, "showIndex...");
+        String year = req.getParameter("year");
+        Logit.d(TAG, "showIndex... year: " + year);
+        CURRENT_YEAR = year;
+        if (Constants.YEAR_2024.equals(year)) {
+            Constants.TABLE_YU_RONG = TABLE_YU_RONG_2024;
+            Constants.TABLE_FBP = TABLE_FBP_2024;
+        } else if (Constants.YEAR_2025.equals(year)) {
+            Constants.TABLE_YU_RONG = TABLE_YU_RONG_2025;
+            Constants.TABLE_FBP = TABLE_FBP_2025;
+        }
+        Logit.d(TAG, "showIndex... TABLE_YU_RONG: " + TABLE_YU_RONG + " TABLE_FBP: " + TABLE_FBP);
+
         List<String> yuRongWorkNames = mYuRongService.getAllWorkName();
         Logit.d(TAG, "yuRongWorkNames: " + yuRongWorkNames);
         List<String> fbpWorkNames = mFbpService.getAllWorkName();

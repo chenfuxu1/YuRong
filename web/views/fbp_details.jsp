@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>2024年度拆羽绒记录</title>
+    <title><%=Constants.CURRENT_YEAR%>年度拆羽绒记录</title>
     <base href="<%=request.getContextPath() + "/"%>">
     <link rel="stylesheet" href="assets/css/style.css"/>
     <style type="text/css">
@@ -24,12 +24,11 @@
         }
 
         .footer {
-            position: relative;
-            left: 0;
-            width: 100%;
+            position: absolute; /* 绝对定位 */
+            bottom: 0; /* 底部对齐 */
+            width: 100%; /* 全宽 */
             text-align: center;
             padding: 10px 0;
-            margin-top: 260px;
             margin-bottom: 80px;
         }
 
@@ -68,7 +67,7 @@
 <a id="showAdd" href="fbp?action=showAddFbpItem&workName=${sessionScope.fbp_work_records.workName}">
     <img src="assets/img/add.png" style="width: 60px; height: 60px">
 </a>
-<a id="return" href="index.jsp">
+<a id="return" href="yuRong?action=showIndex&year=<%=Constants.CURRENT_YEAR%>">
     <img src="assets/img/return.png" style="width: 60px; height: 60px">
 </a>
 <div class="outer-div">

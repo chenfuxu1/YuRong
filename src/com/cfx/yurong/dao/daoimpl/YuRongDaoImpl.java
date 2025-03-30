@@ -8,7 +8,7 @@ import com.cfx.yurong.utils.Logit;
 
 import java.util.List;
 
-import static com.cfx.yurong.utils.Constants.TABLE_YU_RONG_2024;
+import static com.cfx.yurong.utils.Constants.TABLE_YU_RONG;
 
 /**
  * Project: YuRong
@@ -26,7 +26,7 @@ public class YuRongDaoImpl extends BasicDao<YuRongItem> implements IYuRongDao {
             Logit.d(TAG, "workerName is null");
             return null;
         }
-        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG_2024 + " where work_name = ?";
+        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG + " where work_name = ?";
         return queryMulti(sql, YuRongItem.class, workerName);
     }
 
@@ -36,26 +36,26 @@ public class YuRongDaoImpl extends BasicDao<YuRongItem> implements IYuRongDao {
             Logit.d(TAG, "yuRongItem is null");
             return false;
         }
-        String sql = "insert into " + TABLE_YU_RONG_2024 + " values(?, ?, ?, ?, ?, ?);";
+        String sql = "insert into " + TABLE_YU_RONG + " values(?, ?, ?, ?, ?, ?);";
         int update =  update(sql, yuRongItem.getId(), yuRongItem.getWorkName(), yuRongItem.getWorkTime(), yuRongItem.getHeight(), yuRongItem.getKind(), yuRongItem.getTrainNumber());
         return update > 0;
     }
 
     @Override
     public List<YuRongItem> getAllYuRongItems() {
-        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG_2024;
+        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG;
         return queryMulti(sql, YuRongItem.class);
     }
 
     @Override
     public List<YuRongItem> getAllWhiteYuRongItems() {
-        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG_2024 + " where kind = ?";
+        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG + " where kind = ?";
         return queryMulti(sql, YuRongItem.class, Kind.WHITE.getKind());
     }
 
     @Override
     public List<YuRongItem> getAllGrayYuRongItems() {
-        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG_2024 + " where kind = ?";
+        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG + " where kind = ?";
         return queryMulti(sql, YuRongItem.class, Kind.GRAY.getKind());
     }
 
@@ -65,7 +65,7 @@ public class YuRongDaoImpl extends BasicDao<YuRongItem> implements IYuRongDao {
             Logit.d(TAG, "trainNumber is null");
             return null;
         }
-        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG_2024 + " where train_number = ?";
+        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG + " where train_number = ?";
         return queryMulti(sql, YuRongItem.class, trainNumber);
     }
 
@@ -75,7 +75,7 @@ public class YuRongDaoImpl extends BasicDao<YuRongItem> implements IYuRongDao {
             Logit.d(TAG, "trainNumber is null");
             return null;
         }
-        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG_2024 + " where train_number = ? and kind = ?";
+        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG + " where train_number = ? and kind = ?";
         return queryMulti(sql, YuRongItem.class, trainNumber, Kind.WHITE.getKind());
     }
 
@@ -85,7 +85,7 @@ public class YuRongDaoImpl extends BasicDao<YuRongItem> implements IYuRongDao {
             Logit.d(TAG, "trainNumber is null");
             return null;
         }
-        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG_2024 + " where train_number = ? and kind = ?";
+        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG + " where train_number = ? and kind = ?";
         return queryMulti(sql, YuRongItem.class, trainNumber, Kind.GRAY.getKind());
     }
 
@@ -95,7 +95,7 @@ public class YuRongDaoImpl extends BasicDao<YuRongItem> implements IYuRongDao {
             Logit.d(TAG, "workerName or trainNumber is null");
             return null;
         }
-        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG_2024 + " where work_name = ? and train_number = ?";
+        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG + " where work_name = ? and train_number = ?";
         return queryMulti(sql, YuRongItem.class, workerName, trainNum);
     }
 
@@ -105,7 +105,7 @@ public class YuRongDaoImpl extends BasicDao<YuRongItem> implements IYuRongDao {
             Logit.d(TAG, "workerName or trainNumber is null");
             return null;
         }
-        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG_2024 + " where work_name = ? and train_number = ? and kind = ?";
+        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG + " where work_name = ? and train_number = ? and kind = ?";
         return queryMulti(sql, YuRongItem.class, workerName, trainNum, Kind.WHITE.getKind());
     }
 
@@ -115,13 +115,13 @@ public class YuRongDaoImpl extends BasicDao<YuRongItem> implements IYuRongDao {
             Logit.d(TAG, "workerName or trainNumber is null");
             return null;
         }
-        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG_2024 + " where work_name = ? and train_number = ? and kind = ?";
+        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG + " where work_name = ? and train_number = ? and kind = ?";
         return queryMulti(sql, YuRongItem.class, workerName, trainNum, Kind.GRAY.getKind());
     }
 
     @Override
     public List<String> getAllWorkName() {
-        String sql = "select distinct work_name from " + TABLE_YU_RONG_2024;
+        String sql = "select distinct work_name from " + TABLE_YU_RONG;
         return queryArrayList(sql);
     }
 
@@ -131,7 +131,7 @@ public class YuRongDaoImpl extends BasicDao<YuRongItem> implements IYuRongDao {
             Logit.d(TAG, "input id is error");
             return null;
         }
-        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG_2024 + " where id = ?";
+        String sql = "select id, work_name workName, work_time workTime, height, kind, train_number trainNumber from " + TABLE_YU_RONG + " where id = ?";
         return querySingle(sql, YuRongItem.class, id);
     }
 
@@ -145,7 +145,7 @@ public class YuRongDaoImpl extends BasicDao<YuRongItem> implements IYuRongDao {
             Logit.d(TAG, "input id is error");
             return false;
         }
-        String sql = "update " + TABLE_YU_RONG_2024 + " set work_name = ?, work_time = ?, height = ?, kind = ?, train_number = ? where id = ?";
+        String sql = "update " + TABLE_YU_RONG + " set work_name = ?, work_time = ?, height = ?, kind = ?, train_number = ? where id = ?";
         int update =  update(sql, yuRongItem.getWorkName(), yuRongItem.getWorkTime(), yuRongItem.getHeight(), yuRongItem.getKind(),
                 yuRongItem.getTrainNumber(), yuRongItem.getId());
         return update > 0;
@@ -157,20 +157,20 @@ public class YuRongDaoImpl extends BasicDao<YuRongItem> implements IYuRongDao {
             Logit.d(TAG, "input id is null");
             return false;
         }
-        String sql = "delete from " + TABLE_YU_RONG_2024 + " where id = ?";
+        String sql = "delete from " + TABLE_YU_RONG + " where id = ?";
         int update = update(sql, id);
         return update > 0;
     }
 
     @Override
     public List<String> getAllWorkNamesByTrainNum(String trainNum) {
-        String sql = "select distinct work_name from " + TABLE_YU_RONG_2024 + " where train_number = ?";
+        String sql = "select distinct work_name from " + TABLE_YU_RONG + " where train_number = ?";
         return queryArrayList(sql, trainNum);
     }
 
     @Override
     public List<String> getAllTrains() {
-        String sql = "select distinct train_number from " + TABLE_YU_RONG_2024;
+        String sql = "select distinct train_number from " + TABLE_YU_RONG;
         return queryArrayList(sql);
     }
 }

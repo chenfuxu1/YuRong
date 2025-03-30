@@ -1,5 +1,6 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="com.cfx.yurong.utils.Constants" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Project: YuRong
@@ -10,7 +11,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>2024年度拆羽绒记录</title>
+    <title><%=Constants.CURRENT_YEAR%>年度拆羽绒记录</title>
     <base href="<%=request.getContextPath() + "/"%>">
     <link rel="stylesheet" href="assets/css/style.css"/>
     <style type="text/css">
@@ -25,12 +26,11 @@
         }
 
         .footer {
-            position: relative;
-            left: 0;
-            width: 100%;
+            position: absolute; /* 绝对定位 */
+            bottom: 0; /* 底部对齐 */
+            width: 100%; /* 全宽 */
             text-align: center;
             padding: 10px 0;
-            margin-top: 200px;
             margin-bottom: 80px;
         }
     </style>
@@ -75,7 +75,7 @@
 <%--1.标题--%>
 <div class="outer-div" style="padding-top: 20px">
     <img src="assets/img/bai_e.png" style="margin-right: 10px; width: 80px; height: 80px; border-radius: 50%">
-    <span align="center" style="font-size: 60px; font-weight: bold">2024年度拆羽绒账单记录</span>
+    <span align="center" style="font-size: 60px; font-weight: bold"><%=Constants.CURRENT_YEAR%>年度拆羽绒账单记录</span>
 </div>
 <h3 align="center" style="font-size: 50px">添加羽绒</h3>
 
